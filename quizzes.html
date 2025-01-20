@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Quiz Feed</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS file for styling -->
+    <style>
+        /* Add custom CSS for grid layout and styling */
+
+        body {
+            background-color: black;
+        }
+
+        .navbar {
+    width: 100%;
+    border-radius: 0 0 20px 20px;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+}
+
+.logo div{
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo-image {
+    width: 25px;
+    height: 25px;
+    margin-top: -10px;
+}
+
+.logo-name {
+    margin-left: 75px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: xx-large;
+    font-weight: 200;
+    color: rgba(255, 139, 151);
+    margin-top: -5px;
+}
+
+.logo-name a {
+  text-decoration: none;
+  color: rgb(255, 139, 139);
+}
+
+.login {
+    margin-left: -40px;
+    font-size: larger;
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+}
+
+.navbar ul li {
+    justify-content: space-between;
+    margin-right: 50px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: larger;
+    color: rgb(23, 25, 27);
+    text-decoration: none;
+}
+
+.navbar ul a {
+    color: rgba(255, 139, 151);
+    text-decoration: none;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left: 12px;
+    padding-right: 12px;
+    border-radius: 2px;
+}
+
+.navbar ul li :hover {
+    background-color: rgba(255, 139, 151, 0.658);
+    color: aliceblue;
+}
+
+.login {
+    margin-right: 4px;
+    border-radius: 10px;
+}
+
+.button {
+    position: relative;
+    padding: 16px 32px;
+    border-radius: 2px;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    background-color: rgb(255, 139, 150);
+    transition: all 0.2s ease;
+    margin-right: 8px;
+  }
+
+  .button a {
+    text-decoration: none;
+    color: #fff;
+    font-size: larger;
+  }
+  
+  .button:active {
+    transform: scale(0.96);
+  }
+  
+  .button:before,
+  .button:after {
+    position: absolute;
+    content: "";
+    width: 150%;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+    z-index: -1000;
+    background-repeat: no-repeat;
+  }
+  
+  .button:hover:before {
+    top: -70%;
+    background-image: radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, transparent 20%, rgb(255, 139, 150) 20%, transparent 30%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, rgb(255, 139, 150) 15%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%);
+    background-size: 10% 10%, 20% 20%, 15% 15%, 20% 20%, 18% 18%, 10% 10%, 15% 15%,
+      10% 10%, 18% 18%;
+    background-position: 50% 120%;
+    animation: greentopBubbles 0.6s ease;
+  }
+  
+  @keyframes greentopBubbles {
+    0% {
+      background-position: 5% 90%, 10% 90%, 10% 90%, 15% 90%, 25% 90%, 25% 90%,
+        40% 90%, 55% 90%, 70% 90%;
+    }
+  
+    50% {
+      background-position: 0% 80%, 0% 20%, 10% 40%, 20% 0%, 30% 30%, 22% 50%,
+        50% 50%, 65% 20%, 90% 30%;
+    }
+  
+    100% {
+      background-position: 0% 70%, 0% 10%, 10% 30%, 20% -10%, 30% 20%, 22% 40%,
+        50% 40%, 65% 10%, 90% 20%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }
+  
+  .button:hover::after {
+    bottom: -70%;
+    background-image: radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, transparent 10%, rgb(255, 139, 150) 15%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%),
+      radial-gradient(circle, rgb(255, 139, 150) 20%, transparent 20%);
+    background-size: 15% 15%, 20% 20%, 18% 18%, 20% 20%, 15% 15%, 20% 20%, 18% 18%;
+    background-position: 50% 0%;
+    animation: greenbottomBubbles 0.6s ease;
+  }rgb(255, 139, 150)
+  
+  @keyframes greenbottomBubbles {
+    0% {
+      background-position: 10% -10%, 30% 10%, 55% -10%, 70% -10%, 85% -10%,
+        70% -10%, 70% 0%;
+    }
+  
+    50% {
+      background-position: 0% 80%, 20% 80%, 45% 60%, 60% 100%, 75% 70%, 95% 60%,
+        105% 0%;
+    }
+  
+    100% {
+      background-position: 0% 90%, 20% 90%, 45% 70%, 60% 110%, 75% 80%, 95% 70%,
+        110% 10%;
+      background-size: 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%, 0% 0%;
+    }
+  }
+
+  select {
+    text-decoration: none;
+    color: rgb(255, 139, 139);
+    height: 50px;
+    width: 200px;
+    margin-left: 25px;
+    margin-right: 35px;
+    border-radius: 8px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #666;
+    font-size: 1rem;
+    margin-top: 30px;
+    margin-bottom: 10px;
+  }
+
+
+
+        .quiz-cards-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+        }
+        
+        .quiz-card {
+            max-width: calc(30% - 10px);
+            min-width: 200px;
+            background-color: #000000;
+            border: 1px solid rgba(225, 139, 139);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.137);
+            transition: box-shadow 0.3s ease;
+        }
+
+        .quiz-card:hover {
+            box-shadow: 0 8px 16px rgba(255, 139, 139, 0.2);
+        }
+
+        .quiz-card img {
+            width: 100%;
+            height: 200px;
+
+            border-radius: 8px;
+        }
+
+        .quiz-card h2 {
+            margin-top: 10px;
+            font-size: 18px;
+            color: rgb(255, 139, 139);
+        }
+
+        .quiz-card p {
+            margin-top: 5px;
+            font-size: 14px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="logo">
+            <div class="logo-image">
+                <a href="FlexBox.html"><img src="Logo.svg" alt="Logo" width="70px" height="70px"></a>
+            </div>
+            <div class="logo-name">
+                <a href="FlexBox.html">Syncronex</a>
+            </div>
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="dashboard.html">DashBoard</a></li>
+                <li><a href="newsfeed.html">NewsFeed</a></li>
+                <li><a href="quizzes.html">Quizzes</a></li>
+                <li><a href="events.html">Events</a></li>
+            </ul>
+        </div>
+        <div class="button">
+            <a href="login.html">
+                Login
+            </a>
+        </div>
+    </div>
+
+    <section class="main-content">
+        <div class="filters-panel">
+            <!-- Filter options and sort dropdowns go here -->
+            <select>
+                <option value="">Select Category</option>
+                <option value="programming">Programming</option>
+                <option value="ai">Artificial Intelligence</option>
+                <option value="cybersecurity">Cybersecurity</option>
+                <option value="iot">Internet of Things (IoT)</option>
+            </select>
+            <select>
+                <option value="">Sort by</option>
+                <option value="relevance">Relevance</option>
+                <option value="popularity">Popularity</option>
+                <option value="latest">Latest</option>
+            </select>
+        </div>
+        <div class="quiz-cards-grid">
+            <!-- Quiz cards grid content goes here -->
+            
+            <div class="quiz-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA/gMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAACAQADBQQG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAERAjFBIRL/xAAaAQEBAQEBAQEAAAAAAAAAAAACAQADBQYE/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERAhL/2gAMAwEAAhEDEQA/APc5hxJDj9NftlWHPEkKC6SrIciQuRdJVkOJCGukqlInJwK6SrCiQohUpDgwowFDgQ+UCnCgwowlD5BeagOkKUFlRLHXV1zlLWA9bQ/pv6RjtC9JaNrLIto2paNrFIloVbQrHI/MQ4MdJH76/JKshSJIcE5VhyDhwa6SrCSHEdJW5OJIv0LHSVTgrBPThQYUZCnhQZ4UQKcKDCjCUWVGQTlLXOVZUR0/W0dbYyYeto6moxaNqalrLjWja1o2ociWja1oWsUjwIcTkpHovOlKFEhQLHSVZDkSTCQ5VkKRIUGx0lKLiQhrpKsWJIUHHSUoqQkatCiRWE4UCUpRQlgxdZCZJW1EwtUF1kxdraKIuFqampazY1o2taNqHBtHVtc7UKR5HJxIUj0seTKUODIUF0lLFkZYNOUpCkSQpEdJVkKJFGw5VKQTgnK0JGR00llFZUTCWXBlVMQ5VBZUxii6MramIWpqamsuFrWjqWoy2po2pqLi0bWtG1ikS0bWtC1Djz4cgw49Kx4cqyFEhSCcqw4MhSJTlKFEhYJytFaLEdJVhDCGw5VZmgukqszJTlVYjIpSsKypiYrajajYupqNrLi6lraNqNhaNqWjahLaNrUbUWRB6v61o1jkfLD5GFHpvnoUKJCg05ShRIqYUpLEhJhyq0ZZPwbDlWKiwXSVWjMNjpKrMyU5WZmHDnTMyIWqyM2KupaiWiy6mjrai4to6lqWsUW0LWtC1CxbQta0bUwoEKDDj1bHzMpTwpEhwcOVYSRUwpVixoo4cqrEhIUrKijYcrMzC6TplRkw5VaoyWHKzVK2icrMlRMOdNqVkTDjalYdTF1aFrWjamFrWja1RMXUtC1aFZdOQ4PJx6j5bShwIcbDlJYhQcKVijSLglKsVFSw9ZmYTlZmZKcrMzJYcrIyWi6SqnXqWpo4U6ZNXRQ5VGtrax6iWtaNo4vpLU1qNQvTWja2j1Wxda0LVtFl13hQYcelj5jS5OQYcRdWQkhRjlWLjSKOFKysyHrMzDYcqMzJhysjJahytalapRsOdMmtqJhyslbU1DlapqWjaOFK2pa1qVCla0bWtG1F1rQrWjaq61C1bRtTF19cOMz0Xzbpz4UZmUijMhQorMhRYzMNNmZkOIzMhxL6NVhpwalVkMa1ZkOD8GswU4NSszFEFmQoNH6zIQ0KzIo0GZlf/9k=" alt="Quiz 2 Thumbnail">
+                <h2>Machine Learning Fundamentals</h2>
+                <p>Explore the basics of machine learning algorithms and concepts.</p>
+                <p>Difficulty: Intermediate</p>
+                <p>Tags: Machine Learning, AI</p>
+            </div>
+            <!-- Add more quiz cards as needed -->
+            <div class="quiz-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA/gMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAACAQADBQQG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAERAjFBIRL/xAAaAQEBAQEBAQEAAAAAAAAAAAACAQADBQYE/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERAhL/2gAMAwEAAhEDEQA/APc5hxJDj9NftlWHPEkKC6SrIciQuRdJVkOJCGukqlInJwK6SrCiQohUpDgwowFDgQ+UCnCgwowlD5BeagOkKUFlRLHXV1zlLWA9bQ/pv6RjtC9JaNrLIto2paNrFIloVbQrHI/MQ4MdJH76/JKshSJIcE5VhyDhwa6SrCSHEdJW5OJIv0LHSVTgrBPThQYUZCnhQZ4UQKcKDCjCUWVGQTlLXOVZUR0/W0dbYyYeto6moxaNqalrLjWja1o2ociWja1oWsUjwIcTkpHovOlKFEhQLHSVZDkSTCQ5VkKRIUGx0lKLiQhrpKsWJIUHHSUoqQkatCiRWE4UCUpRQlgxdZCZJW1EwtUF1kxdraKIuFqampazY1o2taNqHBtHVtc7UKR5HJxIUj0seTKUODIUF0lLFkZYNOUpCkSQpEdJVkKJFGw5VKQTgnK0JGR00llFZUTCWXBlVMQ5VBZUxii6MramIWpqamsuFrWjqWoy2po2pqLi0bWtG1ikS0bWtC1Djz4cgw49Kx4cqyFEhSCcqw4MhSJTlKFEhYJytFaLEdJVhDCGw5VZmgukqszJTlVYjIpSsKypiYrajajYupqNrLi6lraNqNhaNqWjahLaNrUbUWRB6v61o1jkfLD5GFHpvnoUKJCg05ShRIqYUpLEhJhyq0ZZPwbDlWKiwXSVWjMNjpKrMyU5WZmHDnTMyIWqyM2KupaiWiy6mjrai4to6lqWsUW0LWtC1CxbQta0bUwoEKDDj1bHzMpTwpEhwcOVYSRUwpVixoo4cqrEhIUrKijYcrMzC6TplRkw5VaoyWHKzVK2icrMlRMOdNqVkTDjalYdTF1aFrWjamFrWja1RMXUtC1aFZdOQ4PJx6j5bShwIcbDlJYhQcKVijSLglKsVFSw9ZmYTlZmZKcrMzJYcrIyWi6SqnXqWpo4U6ZNXRQ5VGtrax6iWtaNo4vpLU1qNQvTWja2j1Wxda0LVtFl13hQYcelj5jS5OQYcRdWQkhRjlWLjSKOFKysyHrMzDYcqMzJhysjJahytalapRsOdMmtqJhyslbU1DlapqWjaOFK2pa1qVCla0bWtG1F1rQrWjaq61C1bRtTF19cOMz0Xzbpz4UZmUijMhQorMhRYzMNNmZkOIzMhxL6NVhpwalVkMa1ZkOD8GswU4NSszFEFmQoNH6zIQ0KzIo0GZlf/9k=" alt="Quiz 2 Thumbnail">
+                <h2>Machine Learning Fundamentals</h2>
+                <p>Explore the basics of machine learning algorithms and concepts.</p>
+                <p>Difficulty: Intermediate</p>
+                <p>Tags: Machine Learning, AI</p>
+            </div>
+            <div class="quiz-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA/gMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAACAQADBQQG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAERAjFBIRL/xAAaAQEBAQEBAQEAAAAAAAAAAAACAQADBQYE/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERAhL/2gAMAwEAAhEDEQA/APc5hxJDj9NftlWHPEkKC6SrIciQuRdJVkOJCGukqlInJwK6SrCiQohUpDgwowFDgQ+UCnCgwowlD5BeagOkKUFlRLHXV1zlLWA9bQ/pv6RjtC9JaNrLIto2paNrFIloVbQrHI/MQ4MdJH76/JKshSJIcE5VhyDhwa6SrCSHEdJW5OJIv0LHSVTgrBPThQYUZCnhQZ4UQKcKDCjCUWVGQTlLXOVZUR0/W0dbYyYeto6moxaNqalrLjWja1o2ociWja1oWsUjwIcTkpHovOlKFEhQLHSVZDkSTCQ5VkKRIUGx0lKLiQhrpKsWJIUHHSUoqQkatCiRWE4UCUpRQlgxdZCZJW1EwtUF1kxdraKIuFqampazY1o2taNqHBtHVtc7UKR5HJxIUj0seTKUODIUF0lLFkZYNOUpCkSQpEdJVkKJFGw5VKQTgnK0JGR00llFZUTCWXBlVMQ5VBZUxii6MramIWpqamsuFrWjqWoy2po2pqLi0bWtG1ikS0bWtC1Djz4cgw49Kx4cqyFEhSCcqw4MhSJTlKFEhYJytFaLEdJVhDCGw5VZmgukqszJTlVYjIpSsKypiYrajajYupqNrLi6lraNqNhaNqWjahLaNrUbUWRB6v61o1jkfLD5GFHpvnoUKJCg05ShRIqYUpLEhJhyq0ZZPwbDlWKiwXSVWjMNjpKrMyU5WZmHDnTMyIWqyM2KupaiWiy6mjrai4to6lqWsUW0LWtC1CxbQta0bUwoEKDDj1bHzMpTwpEhwcOVYSRUwpVixoo4cqrEhIUrKijYcrMzC6TplRkw5VaoyWHKzVK2icrMlRMOdNqVkTDjalYdTF1aFrWjamFrWja1RMXUtC1aFZdOQ4PJx6j5bShwIcbDlJYhQcKVijSLglKsVFSw9ZmYTlZmZKcrMzJYcrIyWi6SqnXqWpo4U6ZNXRQ5VGtrax6iWtaNo4vpLU1qNQvTWja2j1Wxda0LVtFl13hQYcelj5jS5OQYcRdWQkhRjlWLjSKOFKysyHrMzDYcqMzJhysjJahytalapRsOdMmtqJhyslbU1DlapqWjaOFK2pa1qVCla0bWtG1F1rQrWjaq61C1bRtTF19cOMz0Xzbpz4UZmUijMhQorMhRYzMNNmZkOIzMhxL6NVhpwalVkMa1ZkOD8GswU4NSszFEFmQoNH6zIQ0KzIo0GZlf/9k=" alt="Quiz 2 Thumbnail">
+                <h2>Machine Learning Fundamentals</h2>
+                <p>Explore the basics of machine learning algorithms and concepts.</p>
+                <p>Difficulty: Intermediate</p>
+                <p>Tags: Machine Learning, AI</p>
+            </div>
+            <div class="quiz-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA/gMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAACAQADBQQG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAERAjFBIRL/xAAaAQEBAQEBAQEAAAAAAAAAAAACAQADBQYE/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERAhL/2gAMAwEAAhEDEQA/APc5hxJDj9NftlWHPEkKC6SrIciQuRdJVkOJCGukqlInJwK6SrCiQohUpDgwowFDgQ+UCnCgwowlD5BeagOkKUFlRLHXV1zlLWA9bQ/pv6RjtC9JaNrLIto2paNrFIloVbQrHI/MQ4MdJH76/JKshSJIcE5VhyDhwa6SrCSHEdJW5OJIv0LHSVTgrBPThQYUZCnhQZ4UQKcKDCjCUWVGQTlLXOVZUR0/W0dbYyYeto6moxaNqalrLjWja1o2ociWja1oWsUjwIcTkpHovOlKFEhQLHSVZDkSTCQ5VkKRIUGx0lKLiQhrpKsWJIUHHSUoqQkatCiRWE4UCUpRQlgxdZCZJW1EwtUF1kxdraKIuFqampazY1o2taNqHBtHVtc7UKR5HJxIUj0seTKUODIUF0lLFkZYNOUpCkSQpEdJVkKJFGw5VKQTgnK0JGR00llFZUTCWXBlVMQ5VBZUxii6MramIWpqamsuFrWjqWoy2po2pqLi0bWtG1ikS0bWtC1Djz4cgw49Kx4cqyFEhSCcqw4MhSJTlKFEhYJytFaLEdJVhDCGw5VZmgukqszJTlVYjIpSsKypiYrajajYupqNrLi6lraNqNhaNqWjahLaNrUbUWRB6v61o1jkfLD5GFHpvnoUKJCg05ShRIqYUpLEhJhyq0ZZPwbDlWKiwXSVWjMNjpKrMyU5WZmHDnTMyIWqyM2KupaiWiy6mjrai4to6lqWsUW0LWtC1CxbQta0bUwoEKDDj1bHzMpTwpEhwcOVYSRUwpVixoo4cqrEhIUrKijYcrMzC6TplRkw5VaoyWHKzVK2icrMlRMOdNqVkTDjalYdTF1aFrWjamFrWja1RMXUtC1aFZdOQ4PJx6j5bShwIcbDlJYhQcKVijSLglKsVFSw9ZmYTlZmZKcrMzJYcrIyWi6SqnXqWpo4U6ZNXRQ5VGtrax6iWtaNo4vpLU1qNQvTWja2j1Wxda0LVtFl13hQYcelj5jS5OQYcRdWQkhRjlWLjSKOFKysyHrMzDYcqMzJhysjJahytalapRsOdMmtqJhyslbU1DlapqWjaOFK2pa1qVCla0bWtG1F1rQrWjaq61C1bRtTF19cOMz0Xzbpz4UZmUijMhQorMhRYzMNNmZkOIzMhxL6NVhpwalVkMa1ZkOD8GswU4NSszFEFmQoNH6zIQ0KzIo0GZlf/9k=" alt="Quiz 2 Thumbnail">
+                <h2>Machine Learning Fundamentals</h2>
+                <p>Explore the basics of machine learning algorithms and concepts.</p>
+                <p>Difficulty: Intermediate</p>
+                <p>Tags: Machine Learning, AI</p>
+            </div>
+            <div class="quiz-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA/gMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAACAQADBQQG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAERAjFBIRL/xAAaAQEBAQEBAQEAAAAAAAAAAAACAQADBQYE/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERAhL/2gAMAwEAAhEDEQA/APc5hxJDj9NftlWHPEkKC6SrIciQuRdJVkOJCGukqlInJwK6SrCiQohUpDgwowFDgQ+UCnCgwowlD5BeagOkKUFlRLHXV1zlLWA9bQ/pv6RjtC9JaNrLIto2paNrFIloVbQrHI/MQ4MdJH76/JKshSJIcE5VhyDhwa6SrCSHEdJW5OJIv0LHSVTgrBPThQYUZCnhQZ4UQKcKDCjCUWVGQTlLXOVZUR0/W0dbYyYeto6moxaNqalrLjWja1o2ociWja1oWsUjwIcTkpHovOlKFEhQLHSVZDkSTCQ5VkKRIUGx0lKLiQhrpKsWJIUHHSUoqQkatCiRWE4UCUpRQlgxdZCZJW1EwtUF1kxdraKIuFqampazY1o2taNqHBtHVtc7UKR5HJxIUj0seTKUODIUF0lLFkZYNOUpCkSQpEdJVkKJFGw5VKQTgnK0JGR00llFZUTCWXBlVMQ5VBZUxii6MramIWpqamsuFrWjqWoy2po2pqLi0bWtG1ikS0bWtC1Djz4cgw49Kx4cqyFEhSCcqw4MhSJTlKFEhYJytFaLEdJVhDCGw5VZmgukqszJTlVYjIpSsKypiYrajajYupqNrLi6lraNqNhaNqWjahLaNrUbUWRB6v61o1jkfLD5GFHpvnoUKJCg05ShRIqYUpLEhJhyq0ZZPwbDlWKiwXSVWjMNjpKrMyU5WZmHDnTMyIWqyM2KupaiWiy6mjrai4to6lqWsUW0LWtC1CxbQta0bUwoEKDDj1bHzMpTwpEhwcOVYSRUwpVixoo4cqrEhIUrKijYcrMzC6TplRkw5VaoyWHKzVK2icrMlRMOdNqVkTDjalYdTF1aFrWjamFrWja1RMXUtC1aFZdOQ4PJx6j5bShwIcbDlJYhQcKVijSLglKsVFSw9ZmYTlZmZKcrMzJYcrIyWi6SqnXqWpo4U6ZNXRQ5VGtrax6iWtaNo4vpLU1qNQvTWja2j1Wxda0LVtFl13hQYcelj5jS5OQYcRdWQkhRjlWLjSKOFKysyHrMzDYcqMzJhysjJahytalapRsOdMmtqJhyslbU1DlapqWjaOFK2pa1qVCla0bWtG1F1rQrWjaq61C1bRtTF19cOMz0Xzbpz4UZmUijMhQorMhRYzMNNmZkOIzMhxL6NVhpwalVkMa1ZkOD8GswU4NSszFEFmQoNH6zIQ0KzIo0GZlf/9k=" alt="Quiz 2 Thumbnail">
+                <h2>Machine Learning Fundamentals</h2>
+                <p>Explore the basics of machine learning algorithms and concepts.</p>
+                <p>Difficulty: Intermediate</p>
+                <p>Tags: Machine Learning, AI</p>
+            </div>
+            <div class="quiz-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA/gMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAACAQADBQQG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAERAjFBIRL/xAAaAQEBAQEBAQEAAAAAAAAAAAACAQADBQYE/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERAhL/2gAMAwEAAhEDEQA/APc5hxJDj9NftlWHPEkKC6SrIciQuRdJVkOJCGukqlInJwK6SrCiQohUpDgwowFDgQ+UCnCgwowlD5BeagOkKUFlRLHXV1zlLWA9bQ/pv6RjtC9JaNrLIto2paNrFIloVbQrHI/MQ4MdJH76/JKshSJIcE5VhyDhwa6SrCSHEdJW5OJIv0LHSVTgrBPThQYUZCnhQZ4UQKcKDCjCUWVGQTlLXOVZUR0/W0dbYyYeto6moxaNqalrLjWja1o2ociWja1oWsUjwIcTkpHovOlKFEhQLHSVZDkSTCQ5VkKRIUGx0lKLiQhrpKsWJIUHHSUoqQkatCiRWE4UCUpRQlgxdZCZJW1EwtUF1kxdraKIuFqampazY1o2taNqHBtHVtc7UKR5HJxIUj0seTKUODIUF0lLFkZYNOUpCkSQpEdJVkKJFGw5VKQTgnK0JGR00llFZUTCWXBlVMQ5VBZUxii6MramIWpqamsuFrWjqWoy2po2pqLi0bWtG1ikS0bWtC1Djz4cgw49Kx4cqyFEhSCcqw4MhSJTlKFEhYJytFaLEdJVhDCGw5VZmgukqszJTlVYjIpSsKypiYrajajYupqNrLi6lraNqNhaNqWjahLaNrUbUWRB6v61o1jkfLD5GFHpvnoUKJCg05ShRIqYUpLEhJhyq0ZZPwbDlWKiwXSVWjMNjpKrMyU5WZmHDnTMyIWqyM2KupaiWiy6mjrai4to6lqWsUW0LWtC1CxbQta0bUwoEKDDj1bHzMpTwpEhwcOVYSRUwpVixoo4cqrEhIUrKijYcrMzC6TplRkw5VaoyWHKzVK2icrMlRMOdNqVkTDjalYdTF1aFrWjamFrWja1RMXUtC1aFZdOQ4PJx6j5bShwIcbDlJYhQcKVijSLglKsVFSw9ZmYTlZmZKcrMzJYcrIyWi6SqnXqWpo4U6ZNXRQ5VGtrax6iWtaNo4vpLU1qNQvTWja2j1Wxda0LVtFl13hQYcelj5jS5OQYcRdWQkhRjlWLjSKOFKysyHrMzDYcqMzJhysjJahytalapRsOdMmtqJhyslbU1DlapqWjaOFK2pa1qVCla0bWtG1F1rQrWjaq61C1bRtTF19cOMz0Xzbpz4UZmUijMhQorMhRYzMNNmZkOIzMhxL6NVhpwalVkMa1ZkOD8GswU4NSszFEFmQoNH6zIQ0KzIo0GZlf/9k=" alt="Quiz 2 Thumbnail">
+                <h2>Machine Learning Fundamentals</h2>
+                <p>Explore the basics of machine learning algorithms and concepts.</p>
+                <p>Difficulty: Intermediate</p>
+                <p>Tags: Machine Learning, AI</p>
+            </div>
+            <div class="quiz-card">
+                <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAkGBwgHBgkIBwgKCgkLDRYPDQwMDRsUFRAWIB0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDQwNGg8PGjclHyU3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3Nzc3N//AABEIAJQA/gMBIgACEQEDEQH/xAAaAAEBAQEBAQEAAAAAAAAAAAACAQADBQQG/8QAGxABAQEBAQEBAQAAAAAAAAAAAAERAjFBIRL/xAAaAQEBAQEBAQEAAAAAAAAAAAACAQADBQYE/8QAGBEBAQEBAQAAAAAAAAAAAAAAAAERAhL/2gAMAwEAAhEDEQA/APc5hxJDj9NftlWHPEkKC6SrIciQuRdJVkOJCGukqlInJwK6SrCiQohUpDgwowFDgQ+UCnCgwowlD5BeagOkKUFlRLHXV1zlLWA9bQ/pv6RjtC9JaNrLIto2paNrFIloVbQrHI/MQ4MdJH76/JKshSJIcE5VhyDhwa6SrCSHEdJW5OJIv0LHSVTgrBPThQYUZCnhQZ4UQKcKDCjCUWVGQTlLXOVZUR0/W0dbYyYeto6moxaNqalrLjWja1o2ociWja1oWsUjwIcTkpHovOlKFEhQLHSVZDkSTCQ5VkKRIUGx0lKLiQhrpKsWJIUHHSUoqQkatCiRWE4UCUpRQlgxdZCZJW1EwtUF1kxdraKIuFqampazY1o2taNqHBtHVtc7UKR5HJxIUj0seTKUODIUF0lLFkZYNOUpCkSQpEdJVkKJFGw5VKQTgnK0JGR00llFZUTCWXBlVMQ5VBZUxii6MramIWpqamsuFrWjqWoy2po2pqLi0bWtG1ikS0bWtC1Djz4cgw49Kx4cqyFEhSCcqw4MhSJTlKFEhYJytFaLEdJVhDCGw5VZmgukqszJTlVYjIpSsKypiYrajajYupqNrLi6lraNqNhaNqWjahLaNrUbUWRB6v61o1jkfLD5GFHpvnoUKJCg05ShRIqYUpLEhJhyq0ZZPwbDlWKiwXSVWjMNjpKrMyU5WZmHDnTMyIWqyM2KupaiWiy6mjrai4to6lqWsUW0LWtC1CxbQta0bUwoEKDDj1bHzMpTwpEhwcOVYSRUwpVixoo4cqrEhIUrKijYcrMzC6TplRkw5VaoyWHKzVK2icrMlRMOdNqVkTDjalYdTF1aFrWjamFrWja1RMXUtC1aFZdOQ4PJx6j5bShwIcbDlJYhQcKVijSLglKsVFSw9ZmYTlZmZKcrMzJYcrIyWi6SqnXqWpo4U6ZNXRQ5VGtrax6iWtaNo4vpLU1qNQvTWja2j1Wxda0LVtFl13hQYcelj5jS5OQYcRdWQkhRjlWLjSKOFKysyHrMzDYcqMzJhysjJahytalapRsOdMmtqJhyslbU1DlapqWjaOFK2pa1qVCla0bWtG1F1rQrWjaq61C1bRtTF19cOMz0Xzbpz4UZmUijMhQorMhRYzMNNmZkOIzMhxL6NVhpwalVkMa1ZkOD8GswU4NSszFEFmQoNH6zIQ0KzIo0GZlf/9k=" alt="Quiz 2 Thumbnail">
+                <h2>Machine Learning Fundamentals</h2>
+                <p>Explore the basics of machine learning algorithms and concepts.</p>
+                <p>Difficulty: Intermediate</p>
+                <p>Tags: Machine Learning, AI</p>
+            </div>
+        </div>
+        <div class="pagination">
+            <!-- Pagination controls go here -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="about-us">
+            <!-- About Us content goes here -->
+            About Us
+        </div>
+        <div class="contact-info">
+            <!-- Contact information goes here -->
+            Contact us
+        </div>
+        <div class="social-media-links">
+            <!-- Social media links go here -->
+            Instagram Handle
+        </div>
+        <div class="copyright">
+            <!-- Copyright information goes here -->
+            Copyright
+        </div>
+    </footer>
+</body>
+</html>
